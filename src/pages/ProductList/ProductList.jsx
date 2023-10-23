@@ -1,5 +1,9 @@
 const ProductList = () => {
-  return <h1>ProductList</h1>;
+  return (
+    <div className="grow">
+      <h1>ProductList</h1>
+    </div>
+  );
 };
 
 export default ProductList;

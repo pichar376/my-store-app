@@ -12,8 +12,8 @@ const SearchProducts = () => {
       <div className="h-6 flex justify-center items-center p-3">
         <FiCamera className="text-slate-400" />
       </div>
-      <div className="w-8 h-6 bg-slate-600 flex justify-center items-center">
-        <BsSearch className=" h-3 w-3 text-slate-300" />
+      <div className="w-10 h-6 bg-slate-600 flex justify-center items-center">
+        <BsSearch className=" h-3 text-slate-300" />
       </div>
     </div>
   );

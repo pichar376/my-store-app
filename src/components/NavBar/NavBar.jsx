@@ -1,7 +1,7 @@
 import SearchProducts from "../SearchProducts/SearchProducts";
 import { AiOutlineMail } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
-import { LiaCartPlusSolid } from "react-icons/lia";
+import { BsCart2 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -17,7 +17,7 @@ const NavBar = () => {
         </div>
         <div className="h-6 w-8 flex justify-center items-center">
           <Link to={"shopping-cart"}>
-            <LiaCartPlusSolid className="text-xl text-slate-500" />
+            <BsCart2 className="text-xl text-slate-500" />
           </Link>
         </div>
       </section>

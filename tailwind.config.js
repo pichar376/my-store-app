@@ -5,7 +5,9 @@ export default {
   theme: {
     extend: {},
     height: {
-      "card": "250px"
+      "card": "250px",
+      "80": "80vh",
+      "full": "100vh"
     },
     width: {
       "desktop": "960px",

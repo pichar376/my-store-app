@@ -14,12 +14,14 @@ import ButtonRemoveOrAdd from "../ButtonRemove/ButtonRemove";
 import { setModalDetail } from "../../features/shoppingReducer/modalSlice";
 
 const ProductCard = ({ item, onOpenModal }) => {
+  // counter of products in cart
   const counterProducts = useSelector((state) => {
     return state.shoppingData.value;
   });
   //image status to render some image in case the image is not available
   const [imageError, setImageError] = useState(false);
 
+  //state of modalDetail
   const [isActive, setIsActive] = useState(false);
 
   const dispatch = useDispatch();
@@ -40,9 +42,12 @@ const ProductCard = ({ item, onOpenModal }) => {
     dispatch(removeToCart(element));
   };
 
+  //data recovered from store
   const modalData = useSelector((state) => {
     return state.modalDetail.productDetail;
   });
+
+  //function to update data of state the modal reducer and actived modal state
   const setModalData = (element) => {
     dispatch(setModalDetail(element));
     onOpenModal();
@@ -53,7 +58,9 @@ const ProductCard = ({ item, onOpenModal }) => {
   //image error handler
   const handleImageError = () => {
     setImageError(true);
+    dispatch(setImageError(true));
   };
+
   //function for know if is in the page shopping-cart
   const isLocationShoppingCart = () => {
     if (location.pathname === "/shopping-cart") {
@@ -63,6 +70,7 @@ const ProductCard = ({ item, onOpenModal }) => {
     }
   };
 
+  //render if location is ShoppingCart
   const renderButtonDelete = (current) => {
     if (current) {
       return (
@@ -103,11 +111,8 @@ const ProductCard = ({ item, onOpenModal }) => {
   };
 
   return (
-    <div
-      className="overflow-x-hidden w-card rounded bg-white z-0 h-36"
-      style={{ boxShadow: " 3px 3px 5px 0px rgba(0,0,0,0.2)" }}
-    >
-      <div className="p-3">
+    <div className="overflow-x-hidden w-card z-0 h-tablet">
+      <div className="">
         <img
           src={
             imageError ? "https://i.imgur.com/OKn1KFI.jpeg" : item?.images[0]
@@ -115,10 +120,12 @@ const ProductCard = ({ item, onOpenModal }) => {
           onClick={() => {
             setModalData(item);
           }}
-          className="w-full h-card"
+          className="w-full h-card object-fill"
           ref={refElement}
           onError={handleImageError}
         />
+        <p>{item.title}</p>
+
         <div className="flex justify-between mt-4">
           <p className="text-red-500">
             $MXN{item.price}.<span className="text-xs">00</span>
@@ -141,7 +148,6 @@ const ProductCard = ({ item, onOpenModal }) => {
           )}
         </div>
         {renderButtonDelete(isLocationShoppingCart())}
-        <p>{item.title}</p>
       </div>
     </div>
   );

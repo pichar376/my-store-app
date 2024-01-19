@@ -17,14 +17,17 @@ const SearchProducts = () => {
       <input
         onChange={handleSearch}
         type="text"
+        id="search"
         placeholder="Search"
-        className="w-full h-6 bg-slate-300 placeholder:text-slate-400 placeholder:p-3 border-none"
+        className="w-full h-6 bg-slate-300 placeholder:text-slate-400 placeholder:p-3 border-none focus:outline-none pl-4"
       />
       <div className="h-6 flex justify-center items-center p-3">
         <FiCamera className="text-slate-400" />
       </div>
       <div className="w-10 h-6 bg-slate-600 flex justify-center items-center">
-        <BsSearch className=" h-3 text-slate-300" />
+        <label htmlFor="search">
+          <BsSearch className=" h-3 text-slate-300" />
+        </label>
       </div>
     </div>
   );

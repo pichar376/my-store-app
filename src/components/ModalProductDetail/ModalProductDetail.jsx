@@ -1,24 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { addToCart } from "../../features/shoppingReducer/shoppingSlice";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import ButtonAddProduct from "../ButtonAddProduct/ButtonaddProduct";
+import { setImageError } from "../../features/shoppingReducer/modalSlice";
 
 const ModalProductDetail = ({ isActiveModal, closeModal }) => {
-  const [imageError, setImageError] = useState(false);
+  const dispatch = useDispatch();
+
+  const imageError = useSelector((state) => {
+    return state.modalDetail.imgError;
+  });
 
   const [isActive, setIsActive] = useState(false);
 
+  //item to render from features modalReducer
   const itemToRender = useSelector((state) => {
     return state.modalDetail.productDetail;
   });
 
-  //image error handler
-  const handleImageError = () => {
-    setImageError(true);
-  };
+  const imageToItem = itemToRender?.images[0];
 
-  const dispatch = useDispatch();
   const handleAddToCart = (element) => {
     dispatch(addToCart(element));
     setIsActive(true);
@@ -31,13 +33,8 @@ const ModalProductDetail = ({ isActiveModal, closeModal }) => {
     <div className="flex-col justify-center items-center h-3/4 w-tablet bg-white fixed z-10 right-0 rounded-lg ">
       <figure>
         <img
-          src={
-            imageError
-              ? "https://i.imgur.com/OKn1KFI.jpeg"
-              : itemToRender?.images[0]
-          }
-          className="w-1/3 h-auto rounded-lg"
-          onError={handleImageError}
+          src={imageToItem ? imageToItem : "https://i.imgur.com/OKn1KFI.jpeg"}
+          className="w-1/3 h-auto rounded-t-lg"
         />
       </figure>
       <div className="flex items-center justify-between">
@@ -57,12 +54,15 @@ const ModalProductDetail = ({ isActiveModal, closeModal }) => {
         </p>
       </div>
 
-      <div className="flex items-center gap-3 p-5 items-baseline">
+      <div className="flex gap-3 p-5 items-baseline h-card-sm overflow-y-auto bg-scroll">
         <p className="font-bold">Description</p>
         <p>{itemToRender.description}</p>
       </div>
 
-      <button onClick={closeModal} className="absolute top-3 right-3 font-bold">
+      <button
+        onClick={closeModal}
+        className="absolute top-3 right-3 font-bold text-slate-300"
+      >
         X
       </button>
     </div>

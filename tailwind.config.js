@@ -6,15 +6,17 @@ export default {
     extend: {},
     height: {
       "card": "250px",
-      "36": "360px",
+      "card-sm": "172px",
       "80": "80vh",
       "60": "60vh",
       "1/4": "25vh",
       "1/2": "50vh",
       "3/4": "75vh",
       "full": "100vh",
+      "1": "1rem",
     },
     width: {
+      "1": "1rem",
       "md": "600px",
       "desktop": "960px",
       "80": "80%",
@@ -33,6 +35,9 @@ export default {
     zIndex: {
       "10": "1000",
       "0": "0"
+    },
+    fontWeight: {
+      "xt": "150"
     }
   },
   plugins: [],

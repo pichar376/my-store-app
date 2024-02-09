@@ -6,12 +6,12 @@ import {
   removeOneToCart,
   removeToCart,
 } from "../../features/shoppingReducer/shoppingSlice";
-import { useLocation } from "react-router-dom";
-import { current } from "@reduxjs/toolkit";
-import { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
 import ButtonRemove from "../ButtonRemove/ButtonRemove";
 import ButtonRemoveOrAdd from "../ButtonRemove/ButtonRemove";
 import { setModalDetail } from "../../features/shoppingReducer/modalSlice";
+import { motion } from "framer-motion";
 
 const ProductCard = ({ item, onOpenModal }) => {
   // counter of products in cart
@@ -71,8 +71,8 @@ const ProductCard = ({ item, onOpenModal }) => {
   };
 
   //render if location is ShoppingCart
-  const renderButtonDelete = (current) => {
-    if (current) {
+  const renderButtonDelete = (currentPage) => {
+    if (currentPage) {
       return (
         <div className="flex justify-evenly items-center ">
           <div className="flex flex-col">
@@ -111,8 +111,12 @@ const ProductCard = ({ item, onOpenModal }) => {
   };
 
   return (
-    <div className="overflow-x-hidden w-card z-0 h-tablet">
-      <div className="">
+    <div className="overflow-x-hidden w-card h-auto z-0 sm:w-h-tablet ">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <img
           src={
             imageError ? "https://i.imgur.com/OKn1KFI.jpeg" : item?.images[0]
@@ -148,7 +152,7 @@ const ProductCard = ({ item, onOpenModal }) => {
           )}
         </div>
         {renderButtonDelete(isLocationShoppingCart())}
-      </div>
+      </motion.div>
     </div>
   );
 };

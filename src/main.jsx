@@ -8,6 +8,8 @@ import "./index.css";
 import Home from "./pages/Home/Home.jsx";
 import ShoppingCart from "./pages/SoppingCart/ShoppingCart.jsx";
 
+const active = "active";
+
 const router = createBrowserRouter([
   {
     path: "/",

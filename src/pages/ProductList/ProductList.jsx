@@ -51,7 +51,7 @@ const ProductList = ({ dataToRender, loading }) => {
   }
   return (
     <div
-      className={`flex grow flex-wrap mt-16 mb-16 gap-4 flex justify-center`}
+      className={`flex grow flex-wrap mt-16 mb-16 gap-4 flex justify-center overflow-x-hidden w-100`}
     >
       {isActiveModal && renderModal()}
       {memoRenderList}

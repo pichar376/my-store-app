@@ -7,6 +7,7 @@ import store from "./store";
 import "./index.css";
 import Home from "./pages/Home/Home.jsx";
 import ShoppingCart from "./pages/SoppingCart/ShoppingCart.jsx";
+import NotFound from "./components/NotFound/NotFound.jsx";
 
 const active = "active";
 
@@ -14,12 +15,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <h1>Not found</h1>,
+    errorElement: <NotFound>not found</NotFound>,
   },
   {
     path: "/shopping-cart",
     element: <ShoppingCart />,
-    errorElement: <h1>Not Found ShoppingCart</h1>,
+    errorElement: <NotFound>not found elemets in cart</NotFound>,
   },
 ]);
 

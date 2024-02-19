@@ -113,9 +113,9 @@ const ProductCard = ({ item, onOpenModal }) => {
   return (
     <div className="overflow-x-hidden w-card h-auto z-0 sm:w-h-tablet ">
       <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
       >
         <img
           src={

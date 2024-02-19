@@ -35,7 +35,7 @@ export default {
       "1": "1px"
     },
     zIndex: {
-      "10": "1000",
+      "10": "999",
       "0": "0"
     },
     fontWeight: {

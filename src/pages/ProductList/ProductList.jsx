@@ -7,6 +7,7 @@ import { MdRestaurantMenu } from "react-icons/md";
 import Loading from "../../components/Loader/Loader";
 import ModalProductDetail from "../../components/ModalProductDetail/ModalProductDetail";
 import useModal from "../../hooks/useModal";
+import NotFound from "../../components/NotFound/NotFound";
 
 const ProductList = ({ dataToRender, loading }) => {
   const searchData = useSelector((state) => state.shoppingData.search);
@@ -37,11 +38,7 @@ const ProductList = ({ dataToRender, loading }) => {
     }
     if (searchData.length > 0) {
       if (dataToRender.length === 0) {
-        return (
-          <div className="grow">
-            <h1>not found:(</h1>
-          </div>
-        );
+        return <NotFound>Not found Products </NotFound>;
       }
     }
   }, [dataToRender, searchData]);

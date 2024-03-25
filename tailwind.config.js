@@ -6,7 +6,7 @@ export default {
     extend: {},
     height: {
       "card": "250px",
-      "card-sm": "172px",
+      "card-sm": "200px",
       "80": "80vh",
       "60": "60vh",
       "1/4": "25vh",
@@ -23,7 +23,7 @@ export default {
       "100": "100%",
       "10": "40px",
       "60": "60%",
-      "card": "200px",
+      "card": "250px",
       "card-sm": "200px",
       "tablet": "400px",
       "1/4": "25%",

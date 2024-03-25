@@ -19,7 +19,7 @@ const ModalProductDetail = ({ isActiveModal, closeModal }) => {
   const itemToRender = useSelector((state) => {
     return state.modalDetail.productDetail;
   });
-  console.log(itemToRender);
+
   const imageToItem = itemToRender?.images[0];
 
   const handleAddToCart = (element) => {

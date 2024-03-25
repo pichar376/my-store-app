@@ -71,7 +71,17 @@ export const ShoppingSlice = createSlice({
 
     setSearch: (state, action) => {
       return { ...state, search: action.payload }
-    }
+    },
+    fetchProductsPending: (state) => {
+      return { ...state, loading: true };
+    },
+    fetchProductsFulfilled: (state, action) => {
+      return { ...state, loading: false, products: action.payload };
+    },
+    fetchProductsRejected: (state, action) => {
+      // Handle errors (optional)
+      return { ...state, loading: false };
+    },
   }
 })
 

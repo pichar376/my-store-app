@@ -111,7 +111,7 @@ const ProductCard = ({ item, onOpenModal }) => {
   };
 
   return (
-    <div className="overflow-x-hidden h-auto z-0 sm:w-h-tablet ">
+    <div className="overflow-x-hidden h-auto z-0 ">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -124,7 +124,7 @@ const ProductCard = ({ item, onOpenModal }) => {
           onClick={() => {
             setModalData(item);
           }}
-          className="w-card-sm h-card-sm sm:w-card sm:h-card object-fill"
+          className=" h-card-sm sm:h-card sm:w-card w-card-sm object-fill"
           ref={refElement}
           onError={handleImageError}
         />

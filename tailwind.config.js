@@ -24,7 +24,7 @@ export default {
       "10": "40px",
       "60": "60%",
       "card": "250px",
-      "card-sm": "200px",
+      "card-sm": "150px",
       "tablet": "400px",
       "1/4": "25%",
       "1/2": "50%",
